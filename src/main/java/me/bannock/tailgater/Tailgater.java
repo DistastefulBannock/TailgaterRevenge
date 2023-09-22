@@ -48,11 +48,7 @@ public class Tailgater {
     }
 
     public static void main(String[] args) {
-        Guice.createInjector(new TailgaterModule(new PiJsonConfigurationManagerImpl()
-                .setConfigurationDefault(ConfigKeys.HC_SR04_TRIGGER_PIN, RaspiPin.GPIO_25)
-                .setConfigurationDefault(ConfigKeys.HC_SR04_ECHO_PIN, RaspiPin.GPIO_27)
-                .loadConfiguration()
-        )).getInstance(Tailgater.class).start();
+        Guice.createInjector(new TailgaterModule()).getInstance(Tailgater.class).start();
     }
 
 }
